@@ -1,0 +1,30 @@
+name: Deploy WASM
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy-to-github-pages:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.x
+
+      - name: Publish .NET Core Project
+        run: dotnet publish BlazorWebAssembly/BlazorWebAssembly.csproj -c Release -o release --nologo
+
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+
+      - name: Commit wwwroot to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
