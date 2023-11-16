@@ -1,7 +1,62 @@
-﻿@page "/"
+﻿@using Toolbelt.Blazor.SpeechSynthesis;
+@using Blazored.LocalStorage;
+
+@page "/"
+@inject ILocalStorageService LocalStorage;
+@inject SpeechSynthesis SpeechSynthesis;
+@inject ISpeechRecognitionService SpeechRecognition;
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world???</h1>
+<h1>Speech to Text Test</h1>
 
-Welcome to your new app.
+<button style="margin: 5px" class="btn btn-primary" @onclick="Speak">Speak</button>
+<button style="margin: 5px" class="btn btn-primary" @onclick="StopSpeak">Stop</button>
+<button style="margin: 5px" class="btn btn-primary" @onclick="Save">Save</button>
+
+<div>
+    <textarea style="margin: 5px; border-radius: 3px" @bind="Text"></textarea>
+</div>
+
+<button style="margin: 5px" class="btn btn-primary" @onclick="Listen">Listen</button>
+
+<div>
+    <textarea style="margin: 5px; border-radius: 3px; width: 340px; height: 100px" placeholder="Grammarly Text Box"></textarea>
+</div>
+
+@code {
+    private string Text { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Text = await LocalStorage.GetItemAsync<string?>("stt-value")
+            ?? string.Empty;
+
+        await base.OnInitializedAsync();
+    }
+
+    private async Task Speak()
+    {
+        Text = string.Empty;
+
+        await SpeechRecognition.RecognizeSpeechAsync("US-en", (text) => {
+            Text += text;
+            return Task.CompletedTask;
+        });
+    }
+
+    private async Task StopSpeak()
+    {
+        await SpeechRecognition.CancelSpeechRecognitionAsync(isAborted: false);
+    }
+
+    private async Task Save()
+    {
+        await LocalStorage.SetItemAsync("stt-value", Text);
+    }
+
+    private async Task Listen()
+    {
+        await SpeechSynthesis.SpeakAsync(this.Text);
+    }
+}
