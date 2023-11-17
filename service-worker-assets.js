@@ -49,11 +49,11 @@
       "url": "icon-light-512.png"
     },
     {
-      "hash": "sha256-DNxhC2o7M8sbB\/m7kACQGtFGFsW1GNoXYtueMpdwy0Y=",
+      "hash": "sha256-mRqGiG6MXmnWsU03tSuQih2a+zJjV4y28uMtHPQHfLA=",
       "url": "index.html"
     },
     {
-      "hash": "sha256-sNU5qDqMFhatE30ztT\/qLQQJMf5Wk+2A9n+\/R4NUt+s=",
+      "hash": "sha256-W8QLsYbaIPGQVvis2gTzaICpgXBEQg6es0WP8cmCvTE=",
       "url": "manifest.json"
     },
     {
@@ -89,7 +89,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-KnXp3UO2tllYw7geujbiJ3doagJrmdzjDEBMCnXKBNg=",
+      "hash": "sha256-gtMEGgnYet8kNQX4DJHND2wf8omYdin3cu+10Jx4O2U=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -105,7 +105,7 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-BiSh9EFdAdO2ncW6vp3\/nYlwZ8mxsPnLVfgt0Lyo8hI=",
+      "hash": "sha256-z6J6MAKZ4C52W4\/g+MAyv\/0OeJzgLEpvKvU21CBH5GA=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
@@ -581,5 +581,5 @@
       "url": "_content\/Toolbelt.Blazor.GetProperty.Script\/Toolbelt.Blazor.GetProperty.Script.lib.module.js"
     }
   ],
-  "version": "UBf\/xT7r"
+  "version": "oWrertBh"
 };
