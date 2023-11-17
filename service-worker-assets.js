@@ -9,7 +9,7 @@
       "url": "bootup-screen.jpg"
     },
     {
-      "hash": "sha256-0\/aNCXuEuvKLAJzng6dgwqxUqesJgmmI0QXC1v3RXIU=",
+      "hash": "sha256-AtFjYpDy9d2XdCGZrH8GXlltb55CueVxA4FlG+UHQGg=",
       "url": "css\/app.css"
     },
     {
@@ -49,12 +49,16 @@
       "url": "icon-light-512.png"
     },
     {
-      "hash": "sha256-mRqGiG6MXmnWsU03tSuQih2a+zJjV4y28uMtHPQHfLA=",
+      "hash": "sha256-uFHdRJfJ1\/Xy2OPxhh2FZWql3SCnSPDWANrQZbW51DQ=",
       "url": "index.html"
     },
     {
       "hash": "sha256-W8QLsYbaIPGQVvis2gTzaICpgXBEQg6es0WP8cmCvTE=",
       "url": "manifest.json"
+    },
+    {
+      "hash": "sha256-B1PgBwsc+hDXqGTfRRwHtOOC3jIZm78HPD\/oLCQZnhc=",
+      "url": "BlazorWebAssembly.styles.css"
     },
     {
       "hash": "sha256-rcIWTVNnYus6VWf2Z2U1g\/JzlC07Ym02cFjHtI59Xsc=",
@@ -89,7 +93,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-gtMEGgnYet8kNQX4DJHND2wf8omYdin3cu+10Jx4O2U=",
+      "hash": "sha256-agA5Y0yIGLX87ZNadZnrz1LPzmaxmL8AOg5lvdMHvO4=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -105,7 +109,7 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-z6J6MAKZ4C52W4\/g+MAyv\/0OeJzgLEpvKvU21CBH5GA=",
+      "hash": "sha256-0o7FCEVCiun4dfDRZ7xl4SAQMGbIK2Ht2wfoTQIW02E=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
@@ -285,7 +289,7 @@
       "url": "_framework\/System.ObjectModel.wasm"
     },
     {
-      "hash": "sha256-WylH1+YhM+xP3IojStS\/CwzOEMEz7xMeZ5DAoyQYeMs=",
+      "hash": "sha256-4s1mQ1WRL+2FE6C4lhbpwmTpw\/xWJnZR\/2UsOAgqeRM=",
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
@@ -373,12 +377,16 @@
       "url": "_framework\/System.Xml.XDocument.wasm"
     },
     {
-      "hash": "sha256-Q1SCbq609vg+UR+5Z6ai1SMg4eIqQnZ4ECczxpOewFs=",
-      "url": "_framework\/Toolbelt.Blazor.SpeechSynthesis.wasm"
+      "hash": "sha256-weCJXWDU5zdPFFtz1l8hFf5cGyJf7Njav44MN3D8lqg=",
+      "url": "_framework\/Toolbelt.Blazor.PWA.Updater.Service.wasm"
     },
     {
-      "hash": "sha256-SVoxZzGTBExaSW\/KcK9VaY+0JWdZxtVesEQGU\/8a6J4=",
-      "url": "BlazorWebAssembly.styles.css"
+      "hash": "sha256-rLxY8GcXMc+DtDtierw+tYTWjmMqRtyqbLVk7ApPs8A=",
+      "url": "_framework\/Toolbelt.Blazor.PWA.Updater.wasm"
+    },
+    {
+      "hash": "sha256-Q1SCbq609vg+UR+5Z6ai1SMg4eIqQnZ4ECczxpOewFs=",
+      "url": "_framework\/Toolbelt.Blazor.SpeechSynthesis.wasm"
     },
     {
       "hash": "sha256-7g4B0nGc5dVpqbyxE4XCZUsr337tX5GUasrxA0ducxI=",
@@ -569,6 +577,10 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     },
     {
+      "hash": "sha256-FusWOhPOKkLq10+x\/UFtqpm\/7B66OiSZdnFf1FsNKa8=",
+      "url": "_content\/Toolbelt.Blazor.PWA.Updater.Service\/script.min.js"
+    },
+    {
       "hash": "sha256-npWMq62DhOnWWotEKWnm7LHW7Lu4M0FqSdzW5JfX+wU=",
       "url": "_content\/Toolbelt.Blazor.SpeechSynthesis\/script.min.js"
     },
@@ -579,7 +591,11 @@
     {
       "hash": "sha256-rN9ebccf1yzi+bWyyip51JJuAKONWUHDBKWnKUpDWAA=",
       "url": "_content\/Toolbelt.Blazor.GetProperty.Script\/Toolbelt.Blazor.GetProperty.Script.lib.module.js"
+    },
+    {
+      "hash": "sha256-CcbCAQysifGy37NQeQFm7ToIaHhq+ULV5MMf7PuLdXs=",
+      "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "oWrertBh"
+  "version": "ahClqBuz"
 };
