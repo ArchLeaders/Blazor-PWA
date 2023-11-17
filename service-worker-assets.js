@@ -29,7 +29,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-PBq6KTRqB7ffMaDjK7Qtax0r+gpQPrV\/AtdSYVOKHuc=",
+      "hash": "sha256-UHPZe5sRWDREZh+TjuYoyAW2vvcNry0s9gL3LjcCKEM=",
       "url": "index.html"
     },
     {
@@ -73,7 +73,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-mrJBBXQVXkPmNzrJKy2tNIkfNgIEBqTlGWigOr4PFZI=",
+      "hash": "sha256-qq6olB6VrRMrNp93cur6UCE6B1\/BARP\/rhvG1deyQto=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -85,11 +85,11 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-NRlJ2g5uZ6nbDDYIC0jKEIsPKih+os2sIbUKQiOJU8Y=",
+      "hash": "sha256-7nwSIfyy9kOATNZKO3ZMLigj4neXOt9RvUjnsXXE56o=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
-      "hash": "sha256-I3\/kj0\/HUt+0zD8iyxnaGBa9zT\/9OAobq\/+M+bxfHHo=",
+      "hash": "sha256-KNyQxbixHghqiCt0gbLse7au34wtj2zUy+DoW0KLoRA=",
       "url": "_framework\/Microsoft.AspNetCore.Components.wasm"
     },
     {
@@ -277,5 +277,5 @@
       "url": "_content\/Toolbelt.Blazor.GetProperty.Script\/Toolbelt.Blazor.GetProperty.Script.lib.module.js"
     }
   ],
-  "version": "Np\/d+Ndc"
+  "version": "+3MkIUei"
 };
