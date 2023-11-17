@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using Toolbelt.Blazor.PWA.Updater
+@inherits LayoutComponentBase
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -11,6 +12,7 @@
 
     <main>
         <article class="content px-4">
+            <PWAUpdater />
             @Body
         </article>
     </main>

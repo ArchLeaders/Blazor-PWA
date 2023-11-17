@@ -85,7 +85,7 @@ code {
 }
 
 #app-loading-modal {
-    background: url("/../bootup-screen.jpg");
+    background: url("../bootup-screen.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
