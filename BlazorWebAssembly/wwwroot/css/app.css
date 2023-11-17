@@ -1,5 +1,5 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Fira Sans', Fira, Arial, sans-serif;
 }
 
 h1:focus {
@@ -37,9 +37,9 @@ a, .btn-link {
 }
 
 #blazor-error-ui {
-    background: lightyellow;
+    background-color: Background;
     bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
     display: none;
     left: 0;
     padding: 0.6rem 1.25rem 0.7rem 1.25rem;
@@ -49,6 +49,7 @@ a, .btn-link {
 }
 
     #blazor-error-ui .dismiss {
+        color: lightcoral;
         cursor: pointer;
         position: absolute;
         right: 0.75rem;
@@ -65,31 +66,12 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-.loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
-}
-
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
-
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
-
 .loading-progress-text {
+    filter: drop-shadow(#00000065 0.1rem 0.1rem 1.5rem);
+    color: #a4a9b5;
     position: absolute;
     text-align: center;
+    font-size: 4rem;
     font-weight: bold;
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
@@ -100,4 +82,32 @@ a, .btn-link {
 
 code {
     color: #c02d76;
+}
+
+#app-loading-modal {
+    background: url("/../bootup-screen.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+    #app-loading-modal img {
+        filter: drop-shadow(#00000065 0.1rem 0.1rem 1.5rem);
+        display: block;
+        margin: auto;
+        width: 50%;
+        padding: 15%;
+    }
+
+@media only screen and (max-width: 1000px) {
+    #app-loading-modal img {
+        padding: 5%;
+    }
 }

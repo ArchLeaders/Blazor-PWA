@@ -1,6 +1,6 @@
 {
-  "name": "BlazorWebAssembly",
-  "short_name": "BlazorWebAssembly",
+  "name": "RACI Solutions (Demo)",
+  "short_name": "RACI",
   "id": "./",
   "start_url": "./",
   "display": "standalone",
@@ -14,9 +14,29 @@
       "sizes": "512x512"
     },
     {
-      "src": "icon-192.png",
+      "src": "icon-256.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icon-light-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon-light-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon-light-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
     }
   ]
 }

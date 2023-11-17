@@ -1,6 +1,6 @@
 ﻿@using Toolbelt.Blazor.SpeechSynthesis;
 @using Blazored.LocalStorage;
-@using BlazorCameraStreamer
+@using BlazorCameraStreamer;
 
 @page "/"
 @inject ILocalStorageService LocalStorage;
@@ -17,7 +17,7 @@
         <h3>Radzen</h3>
     </div>
 
-    <RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
+    <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
 </div>
 
 <div>
@@ -25,29 +25,28 @@
         <h3>Java Script (Interop)</h3>
     </div>
 
-    <RadzenButton Text="Start" Style="margin: 5px" Click="Start"></RadzenButton>
-    <RadzenButton Text="Stop" Style="margin: 5px" Click="Stop"></RadzenButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
+    <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
 </div>
 
-<div style="margin-top: 25px">
-    <textarea style="margin: 5px; border-radius: 3px" @bind="Text"></textarea>
+<div style="margin: 5px; margin-top: 25px">
+    <MudTextField @bind-Value="Text" Label="Voice to Text Output" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
 </div>
 
-<RadzenButton Text="Listen" Style="margin: 5px" Click="Listen"></RadzenButton>
-<RadzenButton Text="Clear" Style="margin: 5px" Click="Clear"></RadzenButton>
+<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
 
 <div style="margin-top: 25px">
     <CameraStreamer @ref=_cameraStreamerReference
                     Width=1920
                     Height=1080
                     OnRendered=OnRenderedHandler
-                    OnFrame=OnFrameHandler
                     Style="width: 480px; height: 270px; margin: 5px; border-radius: 3px"
                     CameraID=@_cameraId
                     Autostart />
 </div>
 
-<RadzenButton Text="Capture" Style="margin: 5px" Click="Capture"></RadzenButton>
+ <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Capture">Capture</MudButton>
 
 <div style="margin-top: 25px">
     <h3>Capture Result</h3>
@@ -64,7 +63,6 @@
 
     private CameraStreamer _cameraStreamerReference = new();
     private string? _cameraId = null;
-    private int _frameCount;
     private string? _imageData;
 
     private void OnSpeechCaptured(string text)
@@ -99,15 +97,9 @@
 
     private async void OnRenderedHandler()
     {
-        _frameCount = 0;
         if (_cameraStreamerReference?.GetCameraAccessAsync() is Task<bool> task && await task) {
             await _cameraStreamerReference!.ReloadAsync();
         }
-    }
-
-    private void OnFrameHandler(string _)
-    {
-        _frameCount++;
     }
 
     private async void Capture()
