@@ -29,7 +29,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-NG1g2+uSTSlyZfPKaTYvKni+2FO+SrWUgPnnGrQ8meQ=",
+      "hash": "sha256-diImIDjm950Gx7p0gS+\/P00dBX4gjoVK4AyQHaX2J7I=",
       "url": "index.html"
     },
     {
@@ -73,7 +73,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-t6EmyOtcgANZkamfEUon4ALxUxbCUit6mcAyGIVSSQw=",
+      "hash": "sha256-TRpl5Ho\/3Tqk+vKlDCHH1Hgn5IAJMS15KTKGjpf9EyQ=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -81,11 +81,15 @@
       "url": "_framework\/Blazor.SpeechRecognition.wasm"
     },
     {
+      "hash": "sha256-RqTDv1udn\/5cNqIgGDHJ7enYSp\/lEt0DzcLrby5BPQU=",
+      "url": "_framework\/BlazorCameraStreamer.wasm"
+    },
+    {
       "hash": "sha256-xHBGFCMjDjvvTwtMvgaMBNmQk9JdVhGmws2\/GMZlxrI=",
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-WfaAfwKkiq8DY7dNHp3U\/hOq9yHxIXlKf84F02faQfs=",
+      "hash": "sha256-K6o\/H\/V1KPdN3\/xmq3Oe4z5CkKqUTitWgHuxxhY+Wbc=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
@@ -93,7 +97,7 @@
       "url": "_framework\/Microsoft.AspNetCore.Components.Forms.wasm"
     },
     {
-      "hash": "sha256-riIMtcrnaoNFdDz8qsxXscAE16wq0GVRvz0bmoySHEQ=",
+      "hash": "sha256-VOh63CYHCznK4dtuCMKPiiW6X\/ZGh+R64VIT5ajayV0=",
       "url": "_framework\/Microsoft.AspNetCore.Components.wasm"
     },
     {
@@ -145,7 +149,7 @@
       "url": "_framework\/Microsoft.Extensions.Primitives.wasm"
     },
     {
-      "hash": "sha256-xA6WZ\/qJYSpIVN\/cRJmsctenrQidtmWikG6iBHwRPMw=",
+      "hash": "sha256-ik8Ajl+7cmlh6wyghDBPFFVrbruU26h75C50E++cXMw=",
       "url": "_framework\/Microsoft.JSInterop.wasm"
     },
     {
@@ -253,7 +257,7 @@
       "url": "_framework\/System.ObjectModel.wasm"
     },
     {
-      "hash": "sha256-ibxArWrd8HbnbZqwW3m6gIBJmELnR3hwFOJPnEwWyQc=",
+      "hash": "sha256-USujDZZ94UxZPI3O0wvzRYPcahzMX9yiytZSDqNOxws=",
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
@@ -297,7 +301,7 @@
       "url": "_framework\/System.Runtime.InteropServices.JavaScript.wasm"
     },
     {
-      "hash": "sha256-oGyNzAzPOlzefi5s8CR8qKstywHCBspTVnCEkpgwIKo=",
+      "hash": "sha256-ELKnWBlM17dTFNKmyGolut58oE8WRioBASVCIpLuvr0=",
       "url": "_framework\/System.Runtime.wasm"
     },
     {
@@ -351,6 +355,10 @@
     {
       "hash": "sha256-7g4B0nGc5dVpqbyxE4XCZUsr337tX5GUasrxA0ducxI=",
       "url": "_content\/Blazor.SpeechRecognition\/blazorators.speechRecognition.js"
+    },
+    {
+      "hash": "sha256-UCBW3aWAlixaJFTfRS1cXne3tUqrDSg9TgVUFxgVavc=",
+      "url": "_content\/BlazorCameraStreamer\/js\/CameraStreamer.js"
     },
     {
       "hash": "sha256-Ov4QvYrblUH4k38XqV2Wgl4XRd24xgDfmXU1BizzVcI=",
@@ -537,5 +545,5 @@
       "url": "_content\/Toolbelt.Blazor.GetProperty.Script\/Toolbelt.Blazor.GetProperty.Script.lib.module.js"
     }
   ],
-  "version": "OREjAjcz"
+  "version": "91Fxx0JH"
 };
