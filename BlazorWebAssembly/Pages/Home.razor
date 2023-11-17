@@ -15,6 +15,10 @@
 <button style="margin: 5px" class="btn btn-primary" @onclick="Save">Save</button>
 
 <div>
+    <input style="margin: 5px; display: inline-block" type="checkbox" name="true" @bind="SingleValue" />
+    <p style="display: inline-block">Single value mode</p>
+</div>
+<div>
     <textarea style="margin: 5px; border-radius: 3px" @bind="Text"></textarea>
 </div>
 
@@ -26,6 +30,7 @@
 
 @code {
     private string Text { get; set; } = string.Empty;
+    private bool SingleValue { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -40,7 +45,12 @@
         Text = string.Empty;
 
         await SpeechRecognition.RecognizeSpeechAsync("US-en", (text) => {
-            Text += text;
+            if (SingleValue) {
+                Text = text;
+            }
+            else {
+                Text += text;
+            }
             return Task.CompletedTask;
         });
     }
