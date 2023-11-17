@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BlazorWebAssembly",
   "resources": {
-    "hash": "sha256-XG+tv1o/PDBTXh9MbouhgnlopaofJ2cP3qIWVP4nV5A=",
+    "hash": "sha256-DGEFHEHSLXM3vAHW+ljwGigeZ1G+S9NjhccLEyl0lJE=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -19,7 +19,7 @@
     "assembly": {
       "Blazor.SpeechRecognition.wasm": "sha256-ahSHP5mEbzim9Uij4b5M+Ob6q3pc9Ou5SQqh0Rq8l3o=",
       "Blazored.LocalStorage.wasm": "sha256-xHBGFCMjDjvvTwtMvgaMBNmQk9JdVhGmws2/GMZlxrI=",
-      "BlazorWebAssembly.wasm": "sha256-7nwSIfyy9kOATNZKO3ZMLigj4neXOt9RvUjnsXXE56o=",
+      "BlazorWebAssembly.wasm": "sha256-dqaa6Nu5GmxAq1ybAR4TcLkZ0hhBFcmWErxgZOBfRiw=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-KNyQxbixHghqiCt0gbLse7au34wtj2zUy+DoW0KLoRA=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-ivj7kxN8rrhTm1UV0H7dhsOewu6rhATFU2ZAG/YKLvA=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-jxT5OPvGNxCa5Ode34Vj10dSuqq5umUUvi5WqGMI6uA=",
