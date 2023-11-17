@@ -8,65 +8,63 @@
 
 <PageTitle>Home</PageTitle>
 
+
 <h1>Speech to Text Test</h1>
 
-<button style="margin: 5px" class="btn btn-primary" @onclick="Speak">Speak</button>
-<button style="margin: 5px" class="btn btn-primary" @onclick="StopSpeak">Stop</button>
-<button style="margin: 5px" class="btn btn-primary" @onclick="Save">Save</button>
+<div>
+    <div style="margin-top: 25px">
+        <h3>Radzen</h3>
+    </div>
+
+    <RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
+</div>
 
 <div>
-    <input style="margin: 5px; display: inline-block" type="checkbox" name="true" @bind="SingleValue" />
-    <p style="display: inline-block">Single value mode</p>
+    <div style="margin-top: 25px">
+        <h3>Java Script (Interop)</h3>
+    </div>
+
+    <RadzenButton Text="Start" Style="margin: 5px" Click="Start"></RadzenButton>
+    <RadzenButton Text="Stop" Style="margin: 5px" Click="Stop"></RadzenButton>
 </div>
-<div>
+
+<div style="margin-top: 25px">
     <textarea style="margin: 5px; border-radius: 3px" @bind="Text"></textarea>
 </div>
 
-<button style="margin: 5px" class="btn btn-primary" @onclick="Listen">Listen</button>
-
-<div>
-    <textarea style="margin: 5px; border-radius: 3px; width: 340px; height: 100px" placeholder="Grammarly Text Box"></textarea>
-</div>
+<RadzenButton Text="Listen" Style="margin: 5px" Click="Listen"></RadzenButton>
+<RadzenButton Text="Clear" Style="margin: 5px" Click="Clear"></RadzenButton>
 
 @code {
     private string Text { get; set; } = string.Empty;
-    private bool SingleValue { get; set; } = false;
 
-    protected override async Task OnInitializedAsync()
+    private void OnSpeechCaptured(string text)
     {
-        Text = await LocalStorage.GetItemAsync<string?>("stt-value")
-            ?? string.Empty;
-
-        await base.OnInitializedAsync();
+        Text += text;
     }
 
-    private async Task Speak()
+    private async Task Start()
     {
         Text = string.Empty;
 
         await SpeechRecognition.RecognizeSpeechAsync("US-en", (text) => {
-            if (SingleValue) {
-                Text = text;
-            }
-            else {
-                Text += text;
-            }
+            Text += text;
             return Task.CompletedTask;
         });
     }
 
-    private async Task StopSpeak()
+    private async Task Stop()
     {
         await SpeechRecognition.CancelSpeechRecognitionAsync(isAborted: false);
-    }
-
-    private async Task Save()
-    {
-        await LocalStorage.SetItemAsync("stt-value", Text);
     }
 
     private async Task Listen()
     {
         await SpeechSynthesis.SpeakAsync(this.Text);
+    }
+
+    private void Clear()
+    {
+        Text = string.Empty;
     }
 }
