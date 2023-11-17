@@ -2,61 +2,62 @@
 @using Blazored.LocalStorage;
 @using BlazorCameraStreamer;
 
-@page "/"
+@page "/home"
 @inject ILocalStorageService LocalStorage;
 @inject SpeechSynthesis SpeechSynthesis;
 @inject ISpeechRecognitionService SpeechRecognition;
 
 <PageTitle>Home</PageTitle>
 
+<div style="margin: 1rem">
+    <h1>Speech to Text Test</h1>
 
-<h1>Speech to Text Test</h1>
+    <div>
+        <div style="margin-top: 25px">
+            <h3>Radzen</h3>
+        </div>
 
-<div>
+        <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
+    </div>
+
+    <div>
+        <div style="margin-top: 25px">
+            <h3>Java Script (Interop)</h3>
+        </div>
+
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
+        <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
+    </div>
+
+    <div style="margin: 5px; margin-top: 25px">
+        <MudTextField @bind-Value="Text" Label="Voice to Text Output" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+    </div>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
+
     <div style="margin-top: 25px">
-        <h3>Radzen</h3>
+        <CameraStreamer @ref=_cameraStreamerReference
+                        Width=1920
+                        Height=1080
+                        OnRendered=OnRenderedHandler
+                        Style="width: 480px; height: 270px; margin: 5px; border-radius: 3px"
+                        CameraID=@_cameraId
+                        Autostart />
     </div>
 
-    <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
-</div>
+     <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Capture">Capture</MudButton>
 
-<div>
     <div style="margin-top: 25px">
-        <h3>Java Script (Interop)</h3>
+        <h3>Capture Result</h3>
     </div>
 
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
-    <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
+    @if (!string.IsNullOrEmpty(_imageData)) {
+        <div style="margin: 5px">
+            <img src=@_imageData style="width: 480px; height: 270px; border-radius: 3px" />
+        </div>
+    }
 </div>
-
-<div style="margin: 5px; margin-top: 25px">
-    <MudTextField @bind-Value="Text" Label="Voice to Text Output" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-</div>
-
-<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
-<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
-
-<div style="margin-top: 25px">
-    <CameraStreamer @ref=_cameraStreamerReference
-                    Width=1920
-                    Height=1080
-                    OnRendered=OnRenderedHandler
-                    Style="width: 480px; height: 270px; margin: 5px; border-radius: 3px"
-                    CameraID=@_cameraId
-                    Autostart />
-</div>
-
- <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Capture">Capture</MudButton>
-
-<div style="margin-top: 25px">
-    <h3>Capture Result</h3>
-</div>
-
-@if (!string.IsNullOrEmpty(_imageData)) {
-    <div style="margin: 5px">
-        <img src=@_imageData style="width: 480px; height: 270px; border-radius: 3px" />
-    </div>
-}
 
  @code {
     private string Text { get; set; } = string.Empty;
