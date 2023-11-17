@@ -1,5 +1,6 @@
 ﻿@using Toolbelt.Blazor.SpeechSynthesis;
 @using Blazored.LocalStorage;
+@using BlazorCameraStreamer
 
 @page "/"
 @inject ILocalStorageService LocalStorage;
@@ -35,8 +36,36 @@
 <RadzenButton Text="Listen" Style="margin: 5px" Click="Listen"></RadzenButton>
 <RadzenButton Text="Clear" Style="margin: 5px" Click="Clear"></RadzenButton>
 
-@code {
+<div style="margin-top: 25px">
+    <CameraStreamer @ref=_cameraStreamerReference
+                    Width=1920
+                    Height=1080
+                    OnRendered=OnRenderedHandler
+                    OnFrame=OnFrameHandler
+                    Style="width: 480px; height: 270px; margin: 5px; border-radius: 3px"
+                    CameraID=@_cameraId
+                    Autostart />
+</div>
+
+<RadzenButton Text="Capture" Style="margin: 5px" Click="Capture"></RadzenButton>
+
+<div style="margin-top: 25px">
+    <h3>Capture Result</h3>
+</div>
+
+@if (!string.IsNullOrEmpty(_imageData)) {
+    <div style="margin: 5px">
+        <img src=@_imageData style="width: 480px; height: 270px; border-radius: 3px" />
+    </div>
+}
+
+ @code {
     private string Text { get; set; } = string.Empty;
+
+    private CameraStreamer _cameraStreamerReference = new();
+    private string? _cameraId = null;
+    private int _frameCount;
+    private string? _imageData;
 
     private void OnSpeechCaptured(string text)
     {
@@ -66,5 +95,25 @@
     private void Clear()
     {
         Text = string.Empty;
+    }
+
+    private async void OnRenderedHandler()
+    {
+        _frameCount = 0;
+        if (_cameraStreamerReference?.GetCameraAccessAsync() is Task<bool> task && await task) {
+            await _cameraStreamerReference!.ReloadAsync();
+        }
+    }
+
+    private void OnFrameHandler(string _)
+    {
+        _frameCount++;
+    }
+
+    private async void Capture()
+    {
+        if (_cameraStreamerReference != null) {
+            _imageData = await _cameraStreamerReference.GetCurrentFrameAsync();
+        }
     }
 }
