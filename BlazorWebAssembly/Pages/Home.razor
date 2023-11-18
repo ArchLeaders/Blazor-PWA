@@ -1,11 +1,11 @@
-﻿@using Toolbelt.Blazor.SpeechSynthesis;
-@using Blazored.LocalStorage;
-@using BlazorCameraStreamer;
+﻿@using Toolbelt.Blazor.SpeechSynthesis
+@using Blazored.LocalStorage
+@using BlazorCameraStreamer
 
-@page "/home"
-@inject ILocalStorageService LocalStorage;
-@inject SpeechSynthesis SpeechSynthesis;
-@inject ISpeechRecognitionService SpeechRecognition;
+@page "/"
+@inject ILocalStorageService LocalStorage
+@inject SpeechSynthesis SpeechSynthesis
+@inject ISpeechRecognitionService SpeechRecognition
 
 <PageTitle>Home</PageTitle>
 
@@ -36,12 +36,10 @@
     <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
     <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
 
-    <div style="margin-top: 25px">
+    <div style="margin: 5px; margin-top: 25px; justify-items: center; display: flex">
         <CameraStreamer @ref=_cameraStreamerReference
-                        Width=1920
-                        Height=1080
                         OnRendered=OnRenderedHandler
-                        Style="width: 480px; height: 270px; margin: 5px; border-radius: 3px"
+                        Style="width: 90%; border-radius: 3px;"
                         CameraID=@_cameraId
                         Autostart />
     </div>
@@ -54,7 +52,7 @@
 
     @if (!string.IsNullOrEmpty(_imageData)) {
         <div style="margin: 5px">
-            <img src=@_imageData style="width: 480px; height: 270px; border-radius: 3px" />
+            <img src=@_imageData style="max-width: 90%; border-radius: 3px" />
         </div>
     }
 </div>

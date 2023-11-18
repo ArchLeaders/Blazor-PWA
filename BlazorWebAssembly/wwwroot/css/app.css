@@ -73,7 +73,7 @@ a, .btn-link {
     text-align: center;
     font-size: 4rem;
     font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    inset: calc(10vh + 3.25rem) 0 auto 0.2rem;
 }
 
     .loading-progress-text:after {

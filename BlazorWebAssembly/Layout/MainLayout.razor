@@ -1,17 +1,23 @@
-﻿@inherits LayoutComponentBase
+﻿@using Blazored.LocalStorage
+@using Toolbelt.Blazor.PWA.Updater
+@using Toolbelt.Blazor.PWA.Updater.Service
 
-<MudThemeProvider IsDarkMode />
+@inherits LayoutComponentBase
+@inject ILocalStorageService LocalStorage
+@inject IPWAUpdaterService UpdaterService
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
     <MudAppBar Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" />
         <MudText Typo="Typo.h5" Class="ml-3">RACI Solutions</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        <MudIconButton @bind-Icon="@_themeModeIcon" Color="Color.Inherit" Edge="Edge.End" OnClick="ThemeToggle" />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+    <MudDrawer @bind-Open="@_isMenuOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
@@ -20,10 +26,29 @@
 </MudLayout>
 
 @code {
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
+    protected override async Task OnInitializedAsync()
     {
-        _drawerOpen = !_drawerOpen;
+        _isDarkMode = await LocalStorage.GetItemAsync<bool?>(nameof(_isDarkMode))
+            ?? true;
+
+        await UpdaterService.SkipWaitingAsync();
+        await base.OnInitializedAsync();
+    }
+
+    private bool _isMenuOpen = true;
+
+    private void DrawerToggle()
+    {
+        _isMenuOpen = !_isMenuOpen;
+    }
+
+    private bool _isDarkMode = true;
+    private string _themeModeIcon = Icons.Material.Filled.LightMode;
+
+    private async Task ThemeToggle()
+    {
+        _isDarkMode = !_isDarkMode;
+        _themeModeIcon = _isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode;
+        await LocalStorage.SetItemAsync(nameof(_isDarkMode), _isDarkMode);
     }
 }
