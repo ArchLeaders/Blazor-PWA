@@ -49,7 +49,7 @@
       "url": "icon-light-512.png"
     },
     {
-      "hash": "sha256-hJsRJkLO9CnBsm0mQYlEfM8mL+FSTlGPYK9Wzp1ZTl0=",
+      "hash": "sha256-G1olpjjSot+QI1XNi5KCmQ5SBjKWdJEp2aKSFwIMSgY=",
       "url": "index.html"
     },
     {
@@ -93,7 +93,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-CqciW3AcBa8dAJxMBJgzuMG12MqjoHjm7a3OF0n6\/Aw=",
+      "hash": "sha256-aYsZyqC25H+7YFbrZFs0joGBTozwatSkCMGE7KpmBT0=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -109,7 +109,7 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-UUOBm4dxm0WZj2+uzIGMHvtuiOga1QVdcuNXvc1T0HU=",
+      "hash": "sha256-N0Nyomw3bG+D0KR46xIBHYRk7+4Q9pHqEwB6sradI88=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
@@ -597,5 +597,5 @@
       "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "zJug1Apm"
+  "version": "8jEANbI3"
 };
