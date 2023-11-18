@@ -9,53 +9,58 @@
 
 <PageTitle>Home</PageTitle>
 
-<div style="margin: 1rem">
-    <h1>Speech to Text Test</h1>
+<MudText Typo="Typo.h1">Speech to Text Test</MudText>
 
-    <div>
-        <div style="margin-top: 25px">
-            <h3>Radzen</h3>
-        </div>
+<MudPaper Style="padding: 1rem; margin-top: 2rem">
+    <MudText Typo="Typo.h3">Radzen</MudText>
+    <MudDivider Class="my-6" />
+    <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
+</MudPaper>
 
-        <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
-    </div>
+<MudPaper Style="padding: 1rem; margin-top: 2rem">
+    <MudText Typo="Typo.h3">Java Script (Interop)</MudText>
+    <MudDivider Class="my-6" />
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
+    <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
+</MudPaper>
 
-    <div>
-        <div style="margin-top: 25px">
-            <h3>Java Script (Interop)</h3>
-        </div>
+<MudPaper Style="padding: 1rem; margin-top: 2rem">
+    <MudTextField @bind-Value="Text" Label="Voice to Text Output" Variant="Variant.Text" />
+</MudPaper>
 
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
-        <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
-    </div>
+<MudDivider Class="my-6" />
 
-    <div style="margin: 5px; margin-top: 25px">
-        <MudTextField @bind-Value="Text" Label="Voice to Text Output" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-    </div>
+<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
 
-    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Listen">Listen</MudButton>
-    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="margin: 5px" OnClick="Clear">Clear</MudButton>
+<MudText Typo="Typo.h1" Class="my-6">Camera Interop</MudText>
 
-    <div style="margin: 5px; margin-top: 25px; justify-items: center; display: flex">
-        <CameraStreamer @ref=_cameraStreamerReference
-                        OnRendered=OnRenderedHandler
-                        Style="width: 90%; border-radius: 3px;"
-                        CameraID=@_cameraId
-                        Autostart />
-    </div>
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <CameraStreamer @ref=_cameraStreamerReference
+                    OnRendered=OnRenderedHandler
+                    Width="1920"
+                    Height="1080"
+                    Style="width: 100%; border-radius: 0.4rem;"
+                    CameraID=@_cameraId
+                    Autostart />
+</MudContainer>
 
-     <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Capture">Capture</MudButton>
+<MudDivider Class="my-6" />
 
-    <div style="margin-top: 25px">
-        <h3>Capture Result</h3>
-    </div>
+<MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="Capture" Class="my-2">Capture</MudButton>
 
-    @if (!string.IsNullOrEmpty(_imageData)) {
-        <div style="margin: 5px">
-            <img src=@_imageData style="max-width: 90%; border-radius: 3px" />
-        </div>
-    }
-</div>
+<MudDivider Class="my-6" />
+
+@if (!string.IsNullOrEmpty(_imageData)) {
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudImage Src="@_imageData" Style="width: 100%; border-radius: 0.4rem" />
+    </MudContainer>
+}
+else {
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="15rem" Style="border-radius: 0.4rem" />
+    </MudContainer>
+}
 
  @code {
     private string Text { get; set; } = string.Empty;
