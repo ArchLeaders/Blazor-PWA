@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  deploy-to-github-pages:
+  deploy-to-ftp:
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -26,5 +26,5 @@ jobs:
           server: ${{ SECRETS.FTP_SERVER }}
           username: ${{ SECRETS.FTP_USERNAME }}
           password: ${{ SECRETS.FTP_PASSWORD }}
-          local-dir: bin/wwwroot
-          server-dir: '@'
+          local-dir: bin/wwwroot/
+          server-dir: './@/'
