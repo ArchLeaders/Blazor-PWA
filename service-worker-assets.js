@@ -9,7 +9,7 @@
       "url": "bootup-screen.jpg"
     },
     {
-      "hash": "sha256-AtFjYpDy9d2XdCGZrH8GXlltb55CueVxA4FlG+UHQGg=",
+      "hash": "sha256-6vGbV1gM5YJVZIEmTZ7XmjaDgtQNSTfIFS2EiU+74lQ=",
       "url": "css\/app.css"
     },
     {
@@ -49,7 +49,7 @@
       "url": "icon-light-512.png"
     },
     {
-      "hash": "sha256-KagNSmj0s5dPARPRG1KoeFeJSG+7Z8yRa4RMe6ZMScs=",
+      "hash": "sha256-hJsRJkLO9CnBsm0mQYlEfM8mL+FSTlGPYK9Wzp1ZTl0=",
       "url": "index.html"
     },
     {
@@ -93,7 +93,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-GwJ9QUgXyOSPzVt0aPJurKAiFvOdqJnjGGRD1IHWghA=",
+      "hash": "sha256-CqciW3AcBa8dAJxMBJgzuMG12MqjoHjm7a3OF0n6\/Aw=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -109,7 +109,7 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
-      "hash": "sha256-5fjpW8wGlY0u25JUj1Dh7apIXPlOI20eELsxOyWK0Cc=",
+      "hash": "sha256-UUOBm4dxm0WZj2+uzIGMHvtuiOga1QVdcuNXvc1T0HU=",
       "url": "_framework\/BlazorWebAssembly.wasm"
     },
     {
@@ -597,5 +597,5 @@
       "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "BH4+tdAi"
+  "version": "zJug1Apm"
 };
