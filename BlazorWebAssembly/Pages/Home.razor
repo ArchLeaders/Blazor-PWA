@@ -5,23 +5,15 @@
 @page "/"
 @inject ILocalStorageService LocalStorage
 @inject SpeechSynthesis SpeechSynthesis
-@inject ISpeechRecognitionService SpeechRecognition
 
 <PageTitle>Home</PageTitle>
 
 <MudText Typo="Typo.h1">Speech to Text Test</MudText>
 
 <MudPaper Style="padding: 1rem; margin-top: 2rem">
-    <MudText Typo="Typo.h3">Radzen</MudText>
+    <MudText Typo="Typo.h3">Custom Implementation</MudText>
     <MudDivider Class="my-6" />
-    <Radzen.Blazor.RadzenSpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
-</MudPaper>
-
-<MudPaper Style="padding: 1rem; margin-top: 2rem">
-    <MudText Typo="Typo.h3">Java Script (Interop)</MudText>
-    <MudDivider Class="my-6" />
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin: 5px" OnClick="Start">Start</MudButton>
-    <MudButton Variant="Variant.Filled" Style="margin: 5px" OnClick="Stop">Stop</MudButton>
+    <SpeechToTextButton Style="margin: 5px" Change="@(text => OnSpeechCaptured(text))" />
 </MudPaper>
 
 <MudPaper Style="padding: 1rem; margin-top: 2rem">
@@ -74,21 +66,6 @@ else {
         Text += text;
     }
 
-    private async Task Start()
-    {
-        Text = string.Empty;
-
-        await SpeechRecognition.RecognizeSpeechAsync("US-en", (text) => {
-            Text += text;
-            return Task.CompletedTask;
-        });
-    }
-
-    private async Task Stop()
-    {
-        await SpeechRecognition.CancelSpeechRecognitionAsync(isAborted: false);
-    }
-
     private async Task Listen()
     {
         await SpeechSynthesis.SpeakAsync(this.Text);
@@ -102,7 +79,8 @@ else {
     private async void OnRenderedHandler()
     {
         if (_cameraStreamerReference?.GetCameraAccessAsync() is Task<bool> task && await task) {
-            await _cameraStreamerReference!.ReloadAsync();
+            await _cameraStreamerReference.ReloadAsync();
+            await _cameraStreamerReference.GetCurrentFrameAsync();
         }
     }
 
