@@ -1,10 +1,8 @@
-name: Deploy WASM
+name: Deploy WASM (Live)
 
 on:
   push:
     branches: [master]
-
-# Live updates need to update index.html{base} to /@/
 
 jobs:
   deploy-to-ftp:
@@ -19,6 +17,11 @@ jobs:
         with:
           dotnet-version: 8.x
 
+      - name: Update Base URL
+        shell: bash
+        run: !
+         sed -i -e 's*href="/"*href="/@/"*g' ./BlazorWebAssembly/wwwroot/index.html
+
       - name: Publish .NET Core Project
         run: dotnet publish BlazorWebAssembly/BlazorWebAssembly.csproj -c Release -o bin --nologo
 
@@ -29,4 +32,4 @@ jobs:
           username: ${{ SECRETS.FTP_USERNAME }}
           password: ${{ SECRETS.FTP_PASSWORD }}
           local-dir: bin/wwwroot/
-          server-dir: './@/'
+          server-dir: './@/' # DO NOT CHANGE THIS, THIS GOES TO A LIVE WEBSITE
