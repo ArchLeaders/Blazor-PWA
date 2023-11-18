@@ -19,8 +19,8 @@ jobs:
 
       - name: Update Base URL
         shell: bash
-        run: !
-         sed -i -e 's*href="/"*href="/@/"*g' ./BlazorWebAssembly/wwwroot/index.html
+        run: |
+          sed -i -e 's*href="/"*href="/@/"*g' ./BlazorWebAssembly/wwwroot/index.html
 
       - name: Publish .NET Core Project
         run: dotnet publish BlazorWebAssembly/BlazorWebAssembly.csproj -c Release -o bin --nologo
