@@ -1,10 +1,8 @@
 ﻿@using Blazored.LocalStorage
 @using Toolbelt.Blazor.PWA.Updater
-@using Toolbelt.Blazor.PWA.Updater.Service
 
 @inherits LayoutComponentBase
 @inject ILocalStorageService LocalStorage
-@inject IPWAUpdaterService UpdaterService
 
 <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
@@ -12,13 +10,22 @@
 
 <MudLayout>
     <MudAppBar Elevation="1">
+        <PWAUpdater />
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" />
         <MudText Typo="Typo.h5" Class="ml-3">RACI Solutions</MudText>
         <MudSpacer />
         <MudIconButton @bind-Icon="@_themeModeIcon" Color="Color.Inherit" Edge="Edge.End" OnClick="ThemeToggle" />
     </MudAppBar>
     <MudDrawer @bind-Open="@_isMenuOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
-        <NavMenu />
+        <MudNavMenu>
+            <MudNavLink IconColor="Color.Primary" Icon="@Icons.Material.Filled.Home" Href="">Home</MudNavLink>
+            <MudDivider />
+            <MudNavLink Icon="@Icons.Material.Filled.Numbers" Href="counter">Counter</MudNavLink>
+        </MudNavMenu>
+        <MudSpacer />
+        <MudNavMenu>
+            <MudNavLink Icon="@Icons.Material.Filled.Info" Href="about">About</MudNavLink>
+        </MudNavMenu>
     </MudDrawer>
     <MudMainContent>
         @Body
@@ -31,7 +38,6 @@
         _isDarkMode = await LocalStorage.GetItemAsync<bool?>(nameof(_isDarkMode))
             ?? true;
 
-        await UpdaterService.SkipWaitingAsync();
         await base.OnInitializedAsync();
     }
 
