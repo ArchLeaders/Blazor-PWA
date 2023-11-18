@@ -4,6 +4,8 @@ on:
   push:
     branches: [master]
 
+# Live updates need to update index.html{base} to /@/
+
 jobs:
   deploy-to-ftp:
     permissions:
