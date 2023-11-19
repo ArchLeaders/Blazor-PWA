@@ -28,18 +28,31 @@
 <MudText Typo="Typo.h1" Class="my-6">Camera Interop</MudText>
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <CameraStreamer @ref=_cameraStreamerReference
+    <CameraStreamer @ref=CameraStreamerReference
                     OnRendered=OnRenderedHandler
                     Width="1920"
                     Height="1080"
                     Style="width: 100%; border-radius: 0.4rem;"
-                    CameraID=@_cameraId
                     Autostart />
 </MudContainer>
 
 <MudDivider Class="my-6" />
 
-<MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="Capture" Class="my-2">Capture</MudButton>
+<MudPaper Style="padding: 1rem">
+    <MudGrid>
+        <MudItem xs="1">
+            <MudButton Class="d-flex align-center justify-center mud-width-full mt-4" Variant="Variant.Outlined" Color="Color.Primary" OnClick="Capture">Capture</MudButton>
+        </MudItem>
+        <MudItem xs="11">
+             <MudSelect Placeholder="[Default]" T="MediaDeviceInfoModel" Label="Camera" AnchorOrigin="Origin.BottomCenter" ValueChanged="CameraChanged" Dense>
+                @foreach (var device in _cameras) {
+                    <MudSelectItem Value="device" title="@(device.DeviceId)">@(device.Label)</MudSelectItem>
+                }
+            </MudSelect>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
 
 <MudDivider Class="my-6" />
 
@@ -54,12 +67,15 @@ else {
     </MudContainer>
 }
 
- @code {
+@code {
     private string Text { get; set; } = string.Empty;
+    private CameraStreamer CameraStreamerReference { get; set; } = new();
+    private MediaDeviceInfoModel? Camera { get; set; } = null;
 
-    private CameraStreamer _cameraStreamerReference = new();
-    private string? _cameraId = null;
     private string? _imageData;
+    private MediaDeviceInfoModel[] _cameras = [];
+
+    private int _videoElementId = 0;
 
     private void OnSpeechCaptured(string text)
     {
@@ -78,16 +94,24 @@ else {
 
     private async void OnRenderedHandler()
     {
-        if (_cameraStreamerReference?.GetCameraAccessAsync() is Task<bool> task && await task) {
-            await _cameraStreamerReference.ReloadAsync();
-            await _cameraStreamerReference.GetCurrentFrameAsync();
+        if (CameraStreamerReference?.GetCameraAccessAsync() is Task<bool> task && await task) {
+            await CameraStreamerReference.ReloadAsync();
+            await CameraStreamerReference.GetCurrentFrameAsync();
+
+            _cameras = await CameraStreamerReference.GetCameraDevicesAsync();
         }
     }
 
     private async void Capture()
     {
-        if (_cameraStreamerReference != null) {
-            _imageData = await _cameraStreamerReference.GetCurrentFrameAsync();
+        if (CameraStreamerReference != null) {
+            _imageData = await CameraStreamerReference.GetCurrentFrameAsync();
         }
+    }
+
+    private async Task CameraChanged(MediaDeviceInfoModel value)
+    {
+        await CameraStreamerReference.ChangeCameraAsync(value.DeviceId);
+        await CameraStreamerReference.ReloadAsync();
     }
 }
