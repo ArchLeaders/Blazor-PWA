@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorWebAssembly.Controls.Common;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using MudBlazor;
 
@@ -14,7 +15,7 @@ namespace BlazorWebAssembly.Controls;
 /// Derived from <a href="https://github.com/radzenhq/radzen-blazor/">Radzen Blazor</a><br/>
 /// Copyright (c) 2018-2023 Radzen Ltd
 /// </summary>
-public partial class SpeechToTextButton : MudComponentBase
+public partial class SpeechToTextButton : JsComponentBase
 {
     /// <summary>
     /// The color of the component. It supports the theme colors.
@@ -96,7 +97,7 @@ public partial class SpeechToTextButton : MudComponentBase
     {
         _recording = !_recording;
 
-        await JSRuntime.InvokeVoidAsync("BlazorWebAssembly.toggleDictation", Reference, Language);
+        await JSRuntime.InvokeVoidAsync("SpeechRecognition.toggleDictation", Reference, Language);
     }
 
     /// <summary>
@@ -119,13 +120,4 @@ public partial class SpeechToTextButton : MudComponentBase
     {
         Change.InvokeAsync(result);
     }
-
-    private DotNetObjectReference<SpeechToTextButton>? _reference;
-
-    /// <summary>
-    /// Gets the reference for the current component.
-    /// </summary>
-    /// <value>The reference.</value>
-    protected DotNetObjectReference<SpeechToTextButton> Reference
-        => _reference ??= DotNetObjectReference.Create(this);
 }
