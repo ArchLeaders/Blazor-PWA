@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 var recognition;
 
-window.BlazorWebAssembly = {
+window.SpeechRecognition = {
     toggleDictation: function (componentRef, language) {
         function start() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
