@@ -32,25 +32,19 @@
                     OnRendered=OnRenderedHandler
                     Width="1920"
                     Height="1080"
-                    Style="width: 100%; border-radius: 0.4rem;"
-                    Autostart />
+                    Style="width: 100%; border-radius: 0.4rem;" Autostart />
 </MudContainer>
 
 <MudDivider Class="my-6" />
 
 <MudPaper Style="padding: 1rem">
-    <MudGrid>
-        <MudItem xs="1">
-            <MudButton Class="d-flex align-center justify-center mud-width-full mt-4" Variant="Variant.Outlined" Color="Color.Primary" OnClick="Capture">Capture</MudButton>
-        </MudItem>
-        <MudItem xs="11">
-             <MudSelect Placeholder="[Default]" T="MediaDeviceInfoModel" Label="Camera" AnchorOrigin="Origin.BottomCenter" ValueChanged="CameraChanged" Dense>
-                @foreach (var device in _cameras) {
-                    <MudSelectItem Value="device" title="@(device.DeviceId)">@(device.Label)</MudSelectItem>
-                }
-            </MudSelect>
-        </MudItem>
-    </MudGrid>
+    <MudButton Class="my-2" Variant="Variant.Outlined" Color="Color.Primary" OnClick="Capture">Capture</MudButton>
+
+    <MudSelect Class="my-2" Placeholder="[Default]" T="MediaDeviceInfoModel" Label="Camera" AnchorOrigin="Origin.BottomCenter" ValueChanged="CameraChanged" Dense>
+        @foreach (var device in _cameras) {
+            <MudSelectItem Value="device" title="@(device.DeviceId)">@(device.Label)</MudSelectItem>
+        }
+    </MudSelect>
 </MudPaper>
 
 
