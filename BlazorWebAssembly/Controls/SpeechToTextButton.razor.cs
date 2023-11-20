@@ -97,7 +97,7 @@ public partial class SpeechToTextButton : JsComponentBase
     {
         _recording = !_recording;
 
-        await JSRuntime.InvokeVoidAsync("SpeechRecognition.toggleDictation", Reference, Language);
+        await JSRuntime.InvokeVoidAsync("SpeechRecognitionModule.toggleDictation", Reference, Language);
     }
 
     /// <summary>

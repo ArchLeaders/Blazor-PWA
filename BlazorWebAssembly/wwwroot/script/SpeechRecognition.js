@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 var recognition;
 
-window.SpeechRecognition = {
+window.SpeechRecognitionModule = {
     toggleDictation: function (componentRef, language) {
         function start() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
